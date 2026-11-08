@@ -1,0 +1,27 @@
+Assignment 6 - Recorded verification
+Student: Zhassyn Zhalynuly
+Group: SE-2527
+Date: 2026-11-08
+
+Command: mvn test
+Java: Eclipse Temurin 17.0.21+9
+Maven: 3.9.16
+JUnit: 5.11.4
+Compiler release: 17
+
+Summary extracted from Maven Surefire XML reports:
+com.zhassyn.filesystem.ElementTest: tests=11, failures=0, errors=0, skipped=0
+com.zhassyn.filesystem.SearchVisitorTest: tests=8, failures=0, errors=0, skipped=0
+com.zhassyn.filesystem.StatisticsVisitorTest: tests=7, failures=0, errors=0, skipped=0
+com.zhassyn.filesystem.TotalSizeVisitorTest: tests=5, failures=0, errors=0, skipped=0
+
+Tests run: 31, Failures: 0, Errors: 0, Skipped: 0
+BUILD SUCCESS
+
+Application command: mvn -q compile exec:java
+Application exit code: 0
+Application output: sample-output.txt
+
+Extension verification:
+Element.java, Node.java, FileNode.java, DirectoryNode.java and Visitor.java
+are byte-for-byte unchanged after adding StatisticsVisitor.

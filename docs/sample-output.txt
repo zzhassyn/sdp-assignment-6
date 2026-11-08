@@ -1,0 +1,14 @@
+Assignment 6 - Visitor Pattern
+Student: Zhassyn Zhalynuly
+Group: SE-2527
+
+Total size: 2050 bytes
+
+Search: name contains ".txt", size >= 200 bytes
+docs/notes.txt
+docs/plan.txt
+
+Statistics:
+Files: 6
+Directories: 5
+Maximum depth: 3
