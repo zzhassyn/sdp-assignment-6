@@ -7,21 +7,21 @@ digraph VisitorPattern {
         ranksep=0.48,
         splines=polyline,
         outputorder=edgesfirst,
-        fontname="DejaVu Sans"
+        fontname="Times New Roman,"
     ];
-    node [shape=plain, fontname="DejaVu Sans", fontsize=12];
-    edge [fontname="DejaVu Sans", fontsize=10, color="#516276", penwidth=1.1, arrowsize=0.85];
+    node [shape=plain, fontname="Times New Roman,", fontsize=12];
+    edge [fontname="Times New Roman,", fontsize=10, color="#000000", penwidth=1.1, arrowsize=0.85];
 
     Element [label=<
-        <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#516276">
-            <TR><TD BGCOLOR="#E8EFF6"><FONT POINT-SIZE="10">&lt;&lt;interface&gt;&gt;</FONT><BR/><B>Element</B></TD></TR>
+        <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#000000">
+            <TR><TD BGCOLOR="white"><FONT POINT-SIZE="10">&lt;&lt;interface&gt;&gt;</FONT><BR/><B>Element</B></TD></TR>
             <TR><TD ALIGN="LEFT">+ getName(): String<BR ALIGN="LEFT"/>+ accept(Visitor): void</TD></TR>
         </TABLE>
     >];
 
     "Node" [label=<
-        <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#516276">
-            <TR><TD BGCOLOR="#E8EFF6"><FONT POINT-SIZE="10">&lt;&lt;abstract&gt;&gt;</FONT><BR/><B><I>Node</I></B></TD></TR>
+        <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#000000">
+            <TR><TD BGCOLOR="white"><FONT POINT-SIZE="10">&lt;&lt;abstract&gt;&gt;</FONT><BR/><B><I>Node</I></B></TD></TR>
             <TR><TD ALIGN="LEFT">- name: String<BR ALIGN="LEFT"/>- parent: DirectoryNode</TD></TR>
             <HR/>
             <TR><TD ALIGN="LEFT">+ getName(): String<BR ALIGN="LEFT"/>+ getParent(): DirectoryNode</TD></TR>
@@ -29,8 +29,8 @@ digraph VisitorPattern {
     >];
 
     FileNode [label=<
-        <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#516276">
-            <TR><TD BGCOLOR="#F0F4F8"><B>FileNode</B></TD></TR>
+        <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#000000">
+            <TR><TD BGCOLOR="white"><B>FileNode</B></TD></TR>
             <TR><TD ALIGN="LEFT">- size: long</TD></TR>
             <HR/>
             <TR><TD ALIGN="LEFT">+ getSize(): long<BR ALIGN="LEFT"/>+ accept(Visitor): void</TD></TR>
@@ -38,36 +38,36 @@ digraph VisitorPattern {
     >];
 
     DirectoryNode [label=<
-        <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#516276">
-            <TR><TD BGCOLOR="#F0F4F8"><B>DirectoryNode</B></TD></TR>
+        <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#000000">
+            <TR><TD BGCOLOR="white"><B>DirectoryNode</B></TD></TR>
             <TR><TD ALIGN="LEFT">+ addChild(Node): void<BR ALIGN="LEFT"/>+ getChildren(): List&lt;Node&gt;<BR ALIGN="LEFT"/>+ accept(Visitor): void</TD></TR>
         </TABLE>
     >];
 
     Visitor [label=<
-        <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#516276">
-            <TR><TD BGCOLOR="#E8F2EE"><FONT POINT-SIZE="10">&lt;&lt;interface&gt;&gt;</FONT><BR/><B>Visitor</B></TD></TR>
+        <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#000000">
+            <TR><TD BGCOLOR="white"><FONT POINT-SIZE="10">&lt;&lt;interface&gt;&gt;</FONT><BR/><B>Visitor</B></TD></TR>
             <TR><TD ALIGN="LEFT">+ visit(FileNode): void<BR ALIGN="LEFT"/>+ visit(DirectoryNode): void</TD></TR>
         </TABLE>
     >];
 
     TotalSizeVisitor [label=<
-        <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#516276">
-            <TR><TD BGCOLOR="#F0F6F3"><B>TotalSizeVisitor</B></TD></TR>
+        <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#000000">
+            <TR><TD BGCOLOR="white"><B>TotalSizeVisitor</B></TD></TR>
             <TR><TD ALIGN="LEFT">+ calculate(Element): long<BR ALIGN="LEFT"/>+ visit(FileNode): void<BR ALIGN="LEFT"/>+ visit(DirectoryNode): void</TD></TR>
         </TABLE>
     >];
 
     SearchVisitor [label=<
-        <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#516276">
-            <TR><TD BGCOLOR="#F0F6F3"><B>SearchVisitor</B></TD></TR>
+        <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#000000">
+            <TR><TD BGCOLOR="white"><B>SearchVisitor</B></TD></TR>
             <TR><TD ALIGN="LEFT">+ search(Element): List&lt;String&gt;<BR ALIGN="LEFT"/>+ visit(FileNode): void<BR ALIGN="LEFT"/>+ visit(DirectoryNode): void</TD></TR>
         </TABLE>
     >];
 
     StatisticsVisitor [label=<
-        <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#516276">
-            <TR><TD BGCOLOR="#F0F6F3"><B>StatisticsVisitor</B></TD></TR>
+        <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#000000">
+            <TR><TD BGCOLOR="white"><B>StatisticsVisitor</B></TD></TR>
             <TR><TD ALIGN="LEFT">+ collect(Element): void<BR ALIGN="LEFT"/>+ getFileCount(): int<BR ALIGN="LEFT"/>+ getDirectoryCount(): int<BR ALIGN="LEFT"/>+ getMaxDepth(): int<BR ALIGN="LEFT"/>+ visit(FileNode): void<BR ALIGN="LEFT"/>+ visit(DirectoryNode): void</TD></TR>
         </TABLE>
     >];
