@@ -3,14 +3,14 @@ digraph VisitorPattern {
         rankdir=TB,
         bgcolor="white",
         pad=0.12,
-        nodesep=0.22,
-        ranksep=0.48,
+        nodesep=0.30,
+        ranksep=0.55,
         splines=polyline,
         outputorder=edgesfirst,
         fontname="Times New Roman,"
     ];
     node [shape=plain, fontname="Times New Roman,", fontsize=12];
-    edge [fontname="Times New Roman,", fontsize=10, color="#000000", penwidth=1.1, arrowsize=0.85];
+    edge [fontname="Times New Roman,", fontsize=11, color="#000000", penwidth=1.1, arrowsize=0.85];
 
     Element [label=<
         <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#000000">
@@ -75,24 +75,25 @@ digraph VisitorPattern {
     { rank=same; FileNode; DirectoryNode; }
     { rank=same; TotalSizeVisitor; SearchVisitor; StatisticsVisitor; }
 
-    Element -> "Node" [dir=back, arrowtail=empty, style=dashed];
-    "Node" -> FileNode [dir=back, arrowtail=empty];
-    "Node" -> DirectoryNode [dir=back, arrowtail=empty];
-    DirectoryNode:e -> "Node":e [
+    Element -> "Node" [dir=back, arrowtail=empty, style=dashed, label="  implements\n  Element"];
+    "Node" -> FileNode [dir=back, arrowtail=empty, label="  extends Node"];
+    "Node" -> DirectoryNode [dir=back, arrowtail=empty, label="  extends Node"];
+    DirectoryNode:ne -> "Node":e [
         dir=both,
         arrowtail=diamond,
         arrowhead=none,
         constraint=false,
-        label="children",
+        label="owns child nodes",
         headlabel="0..*",
+        taillabel="0..1",
         labeldistance=2.0,
         labelangle=45
     ];
 
-    FileNode -> Visitor [style=dashed, arrowhead=vee, label="accept uses"];
-    DirectoryNode -> Visitor [style=dashed, arrowhead=vee, label="accept uses"];
+    FileNode -> Visitor [style=dashed, arrowhead=vee, label="  accept() calls\n  visit(FileNode)"];
+    DirectoryNode -> Visitor [style=dashed, arrowhead=vee, label="  accept() calls\n  visit(DirectoryNode)"];
 
-    Visitor -> TotalSizeVisitor [dir=back, arrowtail=empty, style=dashed];
-    Visitor -> SearchVisitor [dir=back, arrowtail=empty, style=dashed];
-    Visitor -> StatisticsVisitor [dir=back, arrowtail=empty, style=dashed];
+    Visitor -> TotalSizeVisitor [dir=back, arrowtail=empty, style=dashed, label="  implements\n  Visitor"];
+    Visitor -> SearchVisitor [dir=back, arrowtail=empty, style=dashed, label="  implements\n  Visitor"];
+    Visitor -> StatisticsVisitor [dir=back, arrowtail=empty, style=dashed, label="  implements\n  Visitor"];
 }
