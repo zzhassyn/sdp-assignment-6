@@ -9,6 +9,7 @@ public class Main {
         long minimumSize = 200;
         TotalSizeVisitor sizeVisitor = new TotalSizeVisitor();
         SearchVisitor searchVisitor = new SearchVisitor(namePart, minimumSize);
+        StatisticsVisitor statisticsVisitor = new StatisticsVisitor();
 
         System.out.println("Assignment 6 - Visitor Pattern");
         System.out.println("Student: Zhassyn Zhalynuly");
@@ -22,6 +23,13 @@ public class Main {
         for (String path : matches) {
             System.out.println(path);
         }
+
+        statisticsVisitor.collect(root);
+        System.out.println();
+        System.out.println("Statistics:");
+        System.out.println("Files: " + statisticsVisitor.getFileCount());
+        System.out.println("Directories: " + statisticsVisitor.getDirectoryCount());
+        System.out.println("Maximum depth: " + statisticsVisitor.getMaxDepth());
     }
 
     private static DirectoryNode createSampleTree() {
